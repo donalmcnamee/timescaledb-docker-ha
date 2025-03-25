@@ -220,11 +220,11 @@ RUN set -eux; \
 
 ## Add pgsodium extension depedencies
 RUN set -eux; \
-    apt-get install -y libsodium23
+    apt-get install -y libsodium23 libmagic-dev
 
 RUN set -eux; \
     for pg in ${PG_VERSIONS}; do \
-        for pkg in pg_uuidv7 pgsodium safeupdate; do \
+        for pkg in pg_uuidv7 pgsodium safeupdate byteamagic; do \
             PATH="/usr/lib/postgresql/${pg}/bin:$PATH" pgxnclient install --pg_config "/usr/lib/postgresql/${pg}/bin/pg_config" "$pkg"; \
         done; \
     done
