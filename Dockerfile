@@ -224,7 +224,7 @@ RUN set -eux; \
 
 RUN set -eux; \
     for pg in ${PG_VERSIONS}; do \
-        for pkg in pg_uuidv7 pgsodium; do \
+        for pkg in pg_uuidv7 pgsodium safeupdate; do \
             PATH="/usr/lib/postgresql/${pg}/bin:$PATH" pgxnclient install --pg_config "/usr/lib/postgresql/${pg}/bin/pg_config" "$pkg"; \
         done; \
     done
